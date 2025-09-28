@@ -1,89 +1,334 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Arthur Nguyen</title>
-<meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Arthur Nguyen" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="http://localhost:4000/" />
-<meta property="og:url" content="http://localhost:4000/" />
-<meta property="og:site_name" content="Arthur Nguyen" />
-<script type="application/ld+json">
-{"@type":"WebSite","url":"http://localhost:4000/","headline":"Arthur Nguyen","name":"Arthur Nguyen","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Arthur Nguyen" /></head>
-<body><header class="site-header" role="banner">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arthur Nguyen | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Button lift on hover */
+    .btn-lift {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    
+    /* Gradient fade for hero bottom */
+    .hero-fade::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 6rem;
+      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Arthur Nguyen</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
+    /* Navigation backdrop blur */
+    .nav-blur {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
+    }
 
-        <div class="trigger"><a class="page-link" href="/">about</a><a class="page-link" href="/news/">News</a><a class="page-link" href="/CV/">CV</a><a class="page-link" href="/portfolio/">Portfolio</a></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post">
+    /* Smooth hover transitions */
+    .hover-scale {
+      transition: all 0.3s ease;
+    }
+    .hover-scale:hover {
+      transform: scale(1.02);
+    }
 
-  <header class="post-header">
-    <h1 class="post-title"></h1>
-  </header>
+    /* Card glow effect */
+    .card-glow:hover {
+      box-shadow: 0 20px 40px rgba(14, 165, 233, 0.15);
+    }
 
-  <div class="post-content">
-    <p>Hi!</p>
+    /* Text reveal animation */
+    .text-reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: revealUp 0.8s ease forwards;
+    }
 
-<p>I’m Arthur Nguyen, a PhD candidate in Neuroscience at the <a href="https://www.unige.ch/fapse/brainlearning/">Brain and Learning / Bavelier lab</a> (<a href="https://www.unige.ch/en/university/presentation/">University of Geneva</a> / <a href="https://www.campusbiotech.ch/">Campus Biotech</a>). My main project aims to understand how the brain is when in play, more specifically while in the state of flow, also known as being in the zone. For this, we used a brain imaging method called EEG, while people are playing video games.</p>
+    @keyframes revealUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-<p>In addition to research, I am the musical director for the <a href="https://renegadesaints.ch/">Renegade Saints</a> where I underscore improv scenes and create songs on the spot on the piano to accompany improvised songs. I perform improv theater on stage with  <a href="https://www.instagram.com/the_murderet_geneva/">The Murderet</a>. In addition to creating theater forum (theater of the oppressed) through <a href="http://thecatalyst.ch/">The Catalyst</a>, I created and participated in many other improv shows, including improvised musical shows.
-  
-<p>I also do and teach: close-up magic, piano, and am an enthusiast (escape game) and designer of immersive experiences (created immersive theater, alternate reality games)
+    /* Stagger animation delays */
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .delay-400 { animation-delay: 0.4s; }
+  </style>
+</head>
+<body class="bg-gradient-to-l from-blue-50 to-blue-100 text-gray-800 font-sans">
 
-<p>With a computational and cognitive science background from studies in <a href="https://ethz.ch/en.html">Zur</a><a href="https://www.uzh.ch/en/">ich</a>, <a href="https://uci.edu/">Irvine</a> and <a href="https://www.u-bordeaux.com/">Bordeaux</a>, my previous research led me to New York and Geneva to work on the <a href="http://smc.neuralcorrelate.com/">neuroscience of magic</a> then using <a href="https://www.epfl.ch/labs/lnco/">virtual reality</a> for more engaging experiments, in addition to two short analyst gigs in the industry (Google Zurich and a cognitive science startup: <a href="https://goshaba.com/">Goshaba</a>)</p>
-
-<p>Hyperactive project juggler eager to launch and catalyze projects, I can be found helping out at events like <a href="https://www.worldminds.com/">WORLD.MINDS</a> or at the <a href="https://staff.montreux-jazz.ch/upload/secteurs_staff_description.pdf">Protocole of the Montreux Jazz Festival</a>. I’ve also been working on my own events as an active member or lead, in multiple student associations. With an amazing team, <a href="https://www.facebook.com/SCBAteam/">SCBA</a> is currently building a vibrant community at Campus Biotech, with various events and activities. (previously: <a href="https://studentcouncil.ics.uci.edu/">ICSSC UCI</a>, <a href="https://federationfresco.fr/">Fresco</a>, <a href="https://www.facebook.com/Ascoergo/">Ascoergo</a>)</p>
-
-<p>This page is meant to be barebone. And will put together a portfolio shortly. But for now, need to finish this PhD!</p>
-
-<p>Wanna chat? Contact me on <a href="https://www.linkedin.com/in/arthurnguy3n/">linkedin</a> or at arthur.nguyen@unige.ch</p>
-
-
-  </div>
-
-</article>
-
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/20 transition-all duration-300">
+  <div class="max-w-6xl mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <a href="#home" class="text-lg font-semibold text-sky-800 hover:text-sky-600 transition-colors">
+        Arthur Nguyen
+      </a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#home" class="text-gray-700 hover:text-sky-800 transition-colors font-medium">Home</a>
+        <a href="#research" class="text-gray-700 hover:text-sky-800 transition-colors font-medium">Research</a>
+        <a href="#creative" class="text-gray-700 hover:text-sky-800 transition-colors font-medium">Creative</a>
+        <a href="#community" class="text-gray-700 hover:text-sky-800 transition-colors font-medium">Community</a>
+        <a href="#contact" class="text-gray-700 hover:text-sky-800 transition-colors font-medium">Contact</a>
       </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
-
-  <div class="wrapper">
-
-    <!--<h2 class="footer-heading">Arthur Nguyen</h2>-->
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name"><!--  Arthur Nguyen --></li><li><a class="u-email" href="mailto:arthur.nguyen@unige.ch">arthur.nguyen@unige.ch</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.linkedin.com/in/arthurnguy3n"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">arthurnguy3n</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p></p>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-white/50 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-white/20">
+      <div class="flex flex-col space-y-2 pt-4">
+        <a href="#home" class="text-gray-700 hover:text-sky-800 transition-colors font-medium py-2">Home</a>
+        <a href="#research" class="text-gray-700 hover:text-sky-800 transition-colors font-medium py-2">Research</a>
+        <a href="#creative" class="text-gray-700 hover:text-sky-800 transition-colors font-medium py-2">Creative</a>
+        <a href="#community" class="text-gray-700 hover:text-sky-800 transition-colors font-medium py-2">Community</a>
+        <a href="#contact" class="text-gray-700 hover:text-sky-800 transition-colors font-medium py-2">Contact</a>
       </div>
     </div>
-
   </div>
+</nav>
 
+<!-- Landing Section -->
+<section id="home" class="relative min-h-screen flex items-center justify-center px-6 md:px-16 bg-gradient-to-l from-blue-50 to-blue-100 hero-fade pt-20">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl z-10">
+    <!-- Headshot -->
+    <div class="flex items-center justify-center" data-aos="fade-right" data-aos-duration="1200">
+      <div class="relative group">
+        <img src="img/Nguyen_Arthur_landing0.webp" 
+             alt="Arthur Nguyen headshot" 
+             class="rounded-2xl shadow-xl w-full object-cover hover-scale transition-all duration-500 group-hover:shadow-2xl">
+        <!-- Subtle overlay on hover for interactivity -->
+        <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-sky-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+    </div>
+    
+    <!-- Text with staggered animations -->
+    <div class="flex flex-col justify-center space-y-6">
+      <div class="text-reveal">
+        <h1 class="text-4xl md:text-5xl font-bold text-sky-900 leading-tight">
+          Arthur Nguyen
+        </h1>
+      </div>
+      <div class="text-reveal delay-100">
+        <h2 class="text-xl md:text-2xl font-semibold text-gray-700 leading-relaxed">
+          Data Analytics & Neuroscience <br>
+          <span class="text-sky-700">Improv, Piano & Immersive Experience Design</span>
+        </h2>
+      </div>
+      <div class="text-reveal delay-200">
+        <p class="text-lg text-gray-700 leading-relaxed">
+          I work at the intersection of <strong class="text-sky-800">neuroscience, data, and technology</strong> 
+          and <strong class="text-sky-800">creative performance</strong>, exploring how humans learn, connect, and play.
+        </p>
+      </div>
+      <div class="text-reveal delay-300">
+        <p class="text-base text-gray-600 italic">
+          Currently: Postdoctoral Researcher applying neuroscience and data analytics to human experience
+        </p>
+      </div>
+      <div class="text-reveal delay-400">
+        <div class="flex flex-wrap gap-4 pt-2">
+          <a href="#research" class="inline-flex items-center px-6 py-3 bg-sky-600 text-white font-medium rounded-lg btn-lift hover:bg-sky-700 transition-colors">
+            Explore Research
+          </a>
+          <a href="#creative" class="inline-flex items-center px-6 py-3 bg-white text-sky-700 font-medium rounded-lg btn-lift border-2 border-sky-200 hover:border-sky-400 transition-colors">
+            Creative Work
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research Section -->
+<section id="research" class="py-20 px-6 md:px-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto space-y-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-8" data-aos="fade-right">Research & Data</h2>
+
+    <!-- Major Project: EEG Flow Study -->
+    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 hover-scale" data-aos="fade-left" data-aos-delay="100">
+      <h3 class="text-xl font-semibold text-blue-700 mb-3">PhD EEG Study: Flow in Gaming</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Led a multimodal EEG study with 170+ participants on neural correlates of flow while gaming</li>
+        <li>Developed analytics pipelines (MNE-Python, pandas), automated workflows (Power Automate)</li>
+        <li>Supervised and trained 8 junior researchers; designed experiments and wrote manuscripts</li>
+      </ul>
+      <p class="text-gray-600 italic mt-2">Other projects: play in video games vs animal play, teaching assistant for 200+ students, user testing on serious games, planning guest researcher visits.</p>
+    </div>
+
+    <!-- New York Magic Project -->
+    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 hover-scale" data-aos="fade-right" data-aos-delay="200">
+      <h3 class="text-xl font-semibold text-blue-700 mb-3">New York Magic Project</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Collaborated on immersive audience experiments in magic</li>
+        <li>Contributed to experiment design, data collection, and analytics</li>
+        <li>Pending publication on findings, showcasing cross-disciplinary research skills</li>
+      </ul>
+    </div>
+
+    <!-- Automation & Hackathons -->
+    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 hover-scale" data-aos="fade-left" data-aos-delay="300">
+      <h3 class="text-xl font-semibold text-blue-700 mb-3">Data, Automation & Hackathons</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Automated workflows during PhD, at Google, and in startups</li>
+        <li>Mentored participants at machine learning hackathons</li>
+        <li>Class projects: recommender system (Spotify), sentiment analysis on Twitter</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Creative Section -->
+<section id="creative" class="min-h-screen bg-white px-6 md:px-16 py-16">
+  <div class="max-w-6xl mx-auto flex flex-col space-y-12">
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-4" data-aos="zoom-in">Creative Work</h2>
+      <p class="text-gray-700 md:text-lg" data-aos="fade-in" data-aos-delay="100">
+        My creative practice spans improvisation, immersive experiences, and musical direction. These projects explore play, storytelling, and connection.
+      </p>
+    </div>
+
+    <!-- Improv -->
+    <div class="bg-gray-50 rounded-xl shadow-lg p-8 hover-scale" data-aos="slide-in-left" data-aos-duration="1000">
+      <h3 class="text-2xl font-semibold text-purple-800 mb-4">Improvisation & Performance</h3>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        Experienced improviser and musical director, performing short-form and long-form formats, including murder mysteries and narrative styles (Living Room, Close Quarters, Armando). I also underscored shows on piano and coached performers.
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Extensive training in Geneva, online during COVID, and international workshops</li>
+        <li>Led practice sessions, drop-ins, jams, and taught non-improvisers</li>
+        <li>MC'ed shows and coached musical formats</li>
+        <li>Member of two improvisation troupes</li>
+      </ul>
+    </div>
+
+    <!-- Immersive -->
+    <div class="bg-gray-50 rounded-xl shadow-lg p-8 hover-scale" data-aos="slide-in-right" data-aos-duration="1000" data-aos-delay="200">
+      <h3 class="text-2xl font-semibold text-purple-800 mb-4">Immersive & Narrative Experiences</h3>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        Creator and collaborator on immersive and participatory projects blending theatre, narrative, and playful design.
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Immersive theater show at a museum</li>
+        <li>Alternative reality game project</li>
+        <li>Large-scale murder mysteries as actor</li>
+        <li>Advised immersive experiences and gave talks to students</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Community Section -->
+<section id="community" class="py-20 px-6 md:px-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto space-y-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-8" data-aos="flip-up">Community & Volunteering</h2>
+    <p class="text-gray-700 md:text-lg max-w-3xl" data-aos="fade-in" data-aos-delay="100">
+      Community runs through all my work — from mentoring students in neuroscience, to organizing improv jams, to volunteering at conferences. These support roles are often invisible, but they are the backbone of both research and creative practice.
+    </p>
+
+    <!-- Research Community -->
+    <div class="bg-white rounded-xl shadow-lg p-8 hover-scale" data-aos="slide-in-left" data-aos-delay="200">
+      <h3 class="text-2xl font-semibold text-sky-800 mb-4">Research & Data Community</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Mentored junior researchers and hackathon participants</li>
+        <li>Teaching assistant for 200+ students</li>
+        <li>Volunteered at scientific conferences and large events</li>
+      </ul>
+    </div>
+
+    <!-- Creative Community -->
+    <div class="bg-white rounded-xl shadow-lg p-8 hover-scale" data-aos="slide-in-right" data-aos-delay="400">
+      <h3 class="text-2xl font-semibold text-sky-800 mb-4">Creative & Improv Community</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Organized improv jams and drop-ins</li>
+        <li>Active member of associations (SCBA, ASCoErgo, others)</li>
+        <li>Led workshops for non-performers and students</li>
+        <li>Supported festivals and field initiatives</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="py-16 px-6 md:px-16 bg-white">
+  <div class="max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-6" data-aos="bounce-in">Get in Touch</h2>
+    <p class="text-xl text-gray-600 mb-8" data-aos="fade-in" data-aos-delay="100">
+      Always happy to connect about research collaborations, creative projects, or just to say hello!
+    </p>
+    <a href="mailto:your.email@example.com" class="inline-flex items-center px-8 py-4 bg-sky-600 text-white font-medium text-lg rounded-lg btn-lift hover:bg-sky-700 transition-colors" data-aos="zoom-in" data-aos-delay="200">
+      Say Hello
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-sky-900 text-white py-8 px-6 md:px-16">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+    <p>&copy; 2025 Arthur Nguyen</p>
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-gray-300 transition-colors">LinkedIn</a>
+      <a href="mailto:your.email@example.com" class="hover:text-gray-300 transition-colors">Email</a>
+    </div>
+  </div>
 </footer>
-</body>
 
+<script>
+  // Initialize AOS
+  AOS.init({
+    easing: 'ease-in-out',
+    once: true,
+    offset: 50
+  });
+
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Close mobile menu when clicking on links
+  const mobileLinks = document.querySelectorAll('#mobile-menu a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+
+  // Add some scroll effects
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 100) {
+      nav.classList.add('shadow-lg');
+    } else {
+      nav.classList.remove('shadow-lg');
+    }
+  });
+</script>
+</body>
 </html>
