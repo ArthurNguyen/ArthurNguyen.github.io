@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arthur Nguyen | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+  <style>
+    /* Button lift on hover */
+    .btn-lift {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-l from-blue-50 to-blue-100 text-gray-800 font-sans">
+
+<!-- Landing Section -->
+<section class="min-h-screen flex items-center justify-center px-6 md:px-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl">
+    <!-- Headshot -->
+    <div class="flex items-center justify-center" data-aos="fade-down" data-aos-duration="1000">
+      <img src="img/Nguyen_Arthur_landing0.webp" 
+           alt="Arthur Nguyen headshot" 
+           class="rounded-2xl shadow-lg w-full object-cover">
+    </div>
+    <!-- Text -->
+    <div class="flex flex-col justify-center space-y-6" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+      <h1 class="text-3xl md:text-4xl font-bold text-sky-900">
+        Neuroscientist & Experience Designer | Exploring Human Behavior, Play, and Connection
+      </h1>
+      <p class="text-lg md:text-xl leading-relaxed text-gray-700">
+        I am a neuroscientist with a PhD in Cognitive Neuroscience. My work explores how humans think, play, and connect in complex environments — from brain activity (EEG, ERP) to creative, immersive, and community-driven experiences.
+      </p>
+      <p class="text-md text-gray-600 italic">
+        Currently: Postdoctoral Researcher in Neuroscience & Human Experience
+      </p>
+      <div class="flex flex-wrap gap-4 mt-4">
+        <a href="#research" class="btn-lift px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-md">
+          Research & Data
+        </a>
+        <a href="#creative" class="btn-lift px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-md">
+          Creative Work
+        </a>
+        <a href="#community" class="btn-lift px-6 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-md">
+          Community
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Research Section -->
+<section id="research" class="py-20 px-6 md:px-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto space-y-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-8" data-aos="fade-up">Research & Data</h2>
+
+    <!-- Major Project: EEG Flow Study -->
+    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
+      <h3 class="text-xl font-semibold text-blue-700 mb-3">PhD EEG Study: Flow in Gaming</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Led a multimodal EEG study with 170+ participants on neural correlates of flow while gaming</li>
+        <li>Developed analytics pipelines (MNE-Python, pandas), automated workflows (Power Automate)</li>
+        <li>Supervised and trained 8 junior researchers; designed experiments and wrote manuscripts</li>
+      </ul>
+      <p class="text-gray-600 italic mt-2">Other projects: play in video games vs animal play, teaching assistant for 200+ students, user testing on serious games, planning guest researcher visits.</p>
+    </div>
+
+    <!-- New York Magic Project -->
+    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="text-xl font-semibold text-blue-700 mb-3">New York Magic Project</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Collaborated on immersive audience experiments in magic</li>
+        <li>Contributed to experiment design, data collection, and analytics</li>
+        <li>Pending publication on findings, showcasing cross-disciplinary research skills</li>
+      </ul>
+    </div>
+
+    <!-- Automation & Hackathons -->
+    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8" data-aos="fade-up" data-aos-delay="300">
+      <h3 class="text-xl font-semibold text-blue-700 mb-3">Data, Automation & Hackathons</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Automated workflows during PhD, at Google, and in startups</li>
+        <li>Mentored participants at machine learning hackathons</li>
+        <li>Class projects: recommender system (Spotify), sentiment analysis on Twitter</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Creative Section -->
+<section id="creative" class="min-h-screen bg-gray-50 px-6 md:px-16 py-16">
+  <div class="max-w-6xl mx-auto flex flex-col space-y-12">
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-4">Creative Work</h2>
+      <p class="text-gray-700 md:text-lg">
+        My creative practice spans improvisation, immersive experiences, and musical direction. These projects explore play, storytelling, and connection.
+      </p>
+    </div>
+
+    <!-- Improv -->
+    <div class="bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-duration="1000">
+      <h3 class="text-2xl font-semibold text-sky-800 mb-4">Improvisation & Performance</h3>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        Experienced improviser and musical director, performing short-form and long-form formats, including murder mysteries and narrative styles (Living Room, Close Quarters, Armando). I also underscored shows on piano and coached performers.
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Extensive training in Geneva, online during COVID, and international workshops</li>
+        <li>Led practice sessions, drop-ins, jams, and taught non-improvisers</li>
+        <li>MC’ed shows and coached musical formats</li>
+        <li>Member of two improvisation troupes</li>
+      </ul>
+    </div>
+
+    <!-- Immersive -->
+    <div class="bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+      <h3 class="text-2xl font-semibold text-sky-800 mb-4">Immersive & Narrative Experiences</h3>
+      <p class="text-gray-700 leading-relaxed mb-4">
+        Creator and collaborator on immersive and participatory projects blending theatre, narrative, and playful design.
+      </p>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Immersive theater show at a museum</li>
+        <li>Alternative reality game project</li>
+        <li>Large-scale murder mysteries as actor</li>
+        <li>Advised immersive experiences and gave talks to students</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Community Section -->
+<section id="community" class="py-20 px-6 md:px-16 bg-gray-50">
+  <div class="max-w-6xl mx-auto space-y-12">
+    <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-8" data-aos="fade-up">Community & Volunteering</h2>
+    <p class="text-gray-700 md:text-lg max-w-3xl" data-aos="fade-up" data-aos-delay="100">
+      Community runs through all my work — from mentoring students in neuroscience, to organizing improv jams, to volunteering at conferences. These support roles are often invisible, but they are the backbone of both research and creative practice.
+    </p>
+
+    <!-- Research Community -->
+    <div class="bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="text-2xl font-semibold text-sky-800 mb-4">Research & Data Community</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Mentored junior researchers and hackathon participants</li>
+        <li>Teaching assistant for 200+ students</li>
+        <li>Volunteered at scientific conferences and large events</li>
+      </ul>
+    </div>
+
+    <!-- Creative Community -->
+    <div class="bg-white rounded-xl shadow-lg p-8" data-aos="fade-up" data-aos-delay="400">
+      <h3 class="text-2xl font-semibold text-sky-800 mb-4">Creative & Improv Community</h3>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Organized improv jams and drop-ins</li>
+        <li>Active member of associations (SCBA, ASCoErgo, others)</li>
+        <li>Led workshops for non-performers and students</li>
+        <li>Supported festivals and field initiatives</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-sky-900 text-white py-8 px-6 md:px-16">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+    <p>&copy; 2025 Arthur Nguyen</p>
+    <div class="flex gap-6">
+      <a href="#" class="hover:text-gray-300">LinkedIn</a>
+      <a href="#" class="hover:text-gray-300">Email</a>
+      <a href="#" class="hover:text-gray-300">Twitter</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  AOS.init({
+    easing: 'ease-in-out',
+    once: true
+  });
+</script>
+</body>
+</html>
