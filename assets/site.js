@@ -135,8 +135,18 @@
       notice.style.width = level === "higher" ? "78%" : "46%";
       text.textContent = copy[level];
     }
+    // Reserve the height of the longer text, so the controls never jump.
+    function reserve() {
+      text.style.minHeight = "";
+      var keep = text.textContent, h = 0;
+      ["lower", "higher"].forEach(function (k) { text.textContent = copy[k]; h = Math.max(h, text.offsetHeight); });
+      text.textContent = keep;
+      text.style.minHeight = h + "px";
+    }
     buttons.forEach(function (b) { b.addEventListener("click", function () { set(b.dataset.level); }); });
     set("higher");
+    reserve();
+    window.addEventListener("resize", reserve);
   }
 
   /* ---------- Highlight the current room in the nav ---------- */
