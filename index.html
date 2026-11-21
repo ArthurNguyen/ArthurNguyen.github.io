@@ -1,357 +1,269 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arthur Nguyen | Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    /* Button lift on hover */
-    .btn-lift {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .btn-lift:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-    }
-    
-    /* Gradient fade for hero bottom */
-    .hero-fade::after {
-      content: "";
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 6rem;
-      background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* Navigation backdrop blur */
-    .nav-blur {
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.9);
-    }
-
-    /* Smooth hover transitions */
-    .hover-scale {
-      transition: all 0.3s ease;
-    }
-    .hover-scale:hover {
-      transform: scale(1.02);
-    }
-
-    /* Card glow effect */
-    .card-glow:hover {
-      box-shadow: 0 20px 40px rgba(14, 165, 233, 0.15);
-    }
-
-    /* Text reveal animation */
-    .text-reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      animation: revealUp 0.8s ease forwards;
-    }
-
-    @keyframes revealUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Stagger animation delays */
-    .delay-100 { animation-delay: 0.1s; }
-    .delay-200 { animation-delay: 0.2s; }
-    .delay-300 { animation-delay: 0.3s; }
-    .delay-400 { animation-delay: 0.4s; }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arthur Nguyễn</title>
+  <meta name="description" content="Arthur Nguyen: neuroscientist, facilitator and maker in Geneva. Research and data, facilitation and improv, immersive experience design, and getting things done.">
+  <meta property="og:title" content="Arthur Nguyễn">
+  <meta property="og:description" content="A neuroscientist who reads a room as closely as a dataset, designs for the people in it, and sees things through.">
+  <meta property="og:image" content="https://arthurnguyen.github.io/img/arthur-portrait.webp">
+  <meta property="og:type" content="website">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="alternate" hreflang="en" href="https://arthurnguyen.github.io/">
+  <link rel="alternate" hreflang="fr" href="https://arthurnguyen.github.io/fr/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
 </head>
-<body class="bg-gradient-to-l from-blue-50 to-blue-100 text-gray-800 font-sans">
+<body>
 
-<!-- Navigation -->
-<nav class="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-white/20 transition-all duration-300">
-  <div class="max-w-6xl mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
-      <a href="#home" class="text-lg font-semibold text-sky-800 hover:text-sky-600 transition-colors">
-        Arthur Nguyen
-      </a>
-      <div class="hidden md:flex space-x-8">
-        <a href="#home" class="text-gray-700 hover:text-sky-800 transition-colors font-medium">Home</a>
-        <a href="#research" class="text-gray-700 hover:text-sky-800 transition-colors font-medium">Research</a>
-        <a href="#creative" class="text-gray-700 hover:text-sky-800 transition-colors font-medium">Creative</a>
-        <a href="#community" class="text-gray-700 hover:text-sky-800 transition-colors font-medium">Community</a>
-        <a href="#contact" class="text-gray-700 hover:text-sky-800 transition-colors font-medium">Contact</a>
+<header class="site-head">
+  <div class="wrap">
+    <a class="site-name" href="./">Arthur Nguyễn</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li class="opt"><a href="#writing">Talks &amp; papers</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="lang" href="fr/" hreflang="fr" lang="fr">FR</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme"><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1 class="reveal d1">Arthur Nguyễn</h1>
+        <p class="lede reveal d2">A neuroscientist who reads a room as closely as a dataset, designs for the people in it, and <em>sees things through</em>.</p>
+        <p class="reveal d3">I spent eight years at the Brain &amp; Learning Lab (University of Geneva, Campus Biotech), studying flow in video games. Outside the lab, I directed forum theatre, designed immersive shows in museums, and performed and taught improv, sometimes from the piano. The two have more in common than you’d think: understand people carefully, design something tailored to them, then see it through.</p>
+        <p class="now reveal d4">Since November 2026: Workplace Quality of Life (Qualité de vie au travail), Geneva University Hospitals (HUG).</p>
       </div>
-      <!-- Mobile menu button -->
-      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-white/50 transition-colors">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-white/20">
-      <div class="flex flex-col space-y-2 pt-4">
-        <a href="#home" class="text-gray-700 hover:text-sky-800 transition-colors font-medium py-2">Home</a>
-        <a href="#research" class="text-gray-700 hover:text-sky-800 transition-colors font-medium py-2">Research</a>
-        <a href="#creative" class="text-gray-700 hover:text-sky-800 transition-colors font-medium py-2">Creative</a>
-        <a href="#community" class="text-gray-700 hover:text-sky-800 transition-colors font-medium py-2">Community</a>
-        <a href="#contact" class="text-gray-700 hover:text-sky-800 transition-colors font-medium py-2">Contact</a>
-      </div>
+      <figure class="portrait reveal d5">
+        <img src="img/arthur-portrait.webp" width="1000" height="750" alt="Arthur Nguyễn laughing, arms crossed, against a blue background.">
+      </figure>
     </div>
   </div>
-</nav>
 
-<!-- Landing Section -->
-<section id="home" class="relative min-h-screen flex items-center justify-center px-6 md:px-16 bg-gradient-to-l from-blue-50 to-blue-100 hero-fade pt-20">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl z-10">
-    <!-- Headshot -->
-    <div class="flex items-center justify-center" data-aos="fade-right" data-aos-duration="1200">
-      <div class="relative group">
-        <img src="img/Nguyen_Arthur_landing0.webp" 
-             alt="Arthur Nguyen headshot" 
-             class="rounded-2xl shadow-xl w-full object-cover hover-scale transition-all duration-500 group-hover:shadow-2xl">
-        <!-- Subtle overlay on hover for interactivity -->
-        <div class="absolute inset-0 rounded-2xl bg-gradient-to-t from-sky-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+  <section id="how" aria-labelledby="how-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="room">Room 1</p><p class="label">How I work</p></div>
+        <div>
+          <h2 id="how-title">Three threads, woven together</h2>
+          <p>Most projects start with the first, need the second and end with the third. In practice they overlap all the time.</p>
+        </div>
       </div>
+
+      <div class="threads">
+        <div class="thread">
+          <h3><span>01</span>Understand</h3>
+          <p class="kicker">Research · data · insight</p>
+          <p>Observe first. Then ask careful, precise questions, gather clean data, and draw honest conclusions.</p>
+          <ul>
+            <li>Noticed, time after time, that spectators missed a mark that should have ruined my card trick. Turned it into an experiment, now published in <i>Scientific Reports</i>.</li>
+            <li>Built analysis pipelines and statistics reports that can be re-run safely and read clearly, by me and by others.</li>
+            <li>Led a team to an honourable mention at EPFL’s Lemanic Life Sciences Hackathon 2025: the only team to address ethics, as the brief asked.</li>
+          </ul>
+        </div>
+        <div class="thread">
+          <h3><span>02</span>Design for people</h3>
+          <p class="kicker">Facilitation · storytelling · experience design</p>
+          <p>Listen and collect stories, spot strengths, then cast people where they fit and are needed: a mix of people, not a mould. Design experiences people want to step into. Sometimes, simply connect people.</p>
+          <ul>
+            <li>Wrote and directed shows where the audience takes part: forum theatre for the University of Lausanne, an immersive murder mystery at the Musée d’Art et d’Histoire.</li>
+            <li>Mentored 9 junior researchers, and coached many people in public speaking, including a short session before a colleague’s successful CHF 830k Ambizione grant pitch.</li>
+            <li>Co-led the Social Campus Biotech Association, to build a lively community across a campus of several buildings, with a monthly event for 150+ people.</li>
+          </ul>
+        </div>
+        <div class="thread">
+          <h3><span>03</span>See it through</h3>
+          <p class="kicker">Planning · problem-solving · delivery</p>
+          <p>Plan ahead, see problems coming, lighten the load. Be reliable, and keep it joyful.</p>
+          <ul>
+            <li>Automated participant onboarding, so the team’s time went into welcoming people rather than scheduling them.</li>
+            <li>At Google, wrote shell and Excel tools that took manual work off my team. Nobody knew it was possible until I tried; the whole team used them.</li>
+            <li>Designed team games for lab retreats, including a custom game where colleagues guessed and ranked each other from their own answers. Quick to build, and safe for everyone, because I already had a good read of the group.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="next-room"><a href="#work">Next room: selected work <span>→</span></a></p>
     </div>
-    
-    <!-- Text with staggered animations -->
-    <div class="flex flex-col justify-center space-y-6">
-      <div class="text-reveal">
-        <h1 class="text-4xl md:text-5xl font-bold text-sky-900 leading-tight">
-          Still under construction! Arthur Nguyen
-        </h1>
+  </section>
+
+  <section id="work" class="collection" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="room">Room 2</p><p class="label">Selected work</p></div>
+        <div>
+          <h2 id="work-title">Projects I led</h2>
+          <p>Each one has a longer write-up: the brief, what I did, and what I’d do differently. I led them, surrounded by mentors, sounding boards and people I trust.</p>
+        </div>
       </div>
-      <div class="text-reveal delay-100">
-        <h2 class="text-xl md:text-2xl font-semibold text-gray-700 leading-relaxed">
-          Data Analytics & Neuroscience <br>
-          <span class="text-sky-700">Improv, Piano & Immersive Experience Design</span>
-        </h2>
+
+      <div class="works">
+        <a class="piece" href="work/mah-2022.html">
+          <div class="pic"><img src="img/mah-2022-bow.webp" width="1400" height="866" alt="The cast of A MAH-tter of Life and Death in early-1900s costume, in the museum courtyard." loading="lazy"></div>
+          <div class="cartel">
+            <h3>A MAH-tter of Life and Death</h3>
+            <p class="meta">2022 · Immersive theatre, Musée d’Art et d’Histoire · Created, written, directed and produced</p>
+            <p>A murder mystery in the Egyptian wing, for 50 guests from the general public.</p>
+            <span class="go">Read the story →</span>
+          </div>
+        </a>
+        <a class="piece" href="work/phd-flow.html">
+          <div class="pic"><img src="img/phd-eeg-setup.webp" width="1400" height="1050" alt="A participant in an EEG cap playing a video game." loading="lazy"></div>
+          <div class="cartel">
+            <h3>Flow, distraction and a lot of EEG</h3>
+            <p class="meta">2019–2026 · PhD &amp; postdoc, University of Geneva</p>
+            <p>In flow, the brain appears to still notice, without acting on it. Plus: clean data from 170+ people while they play.</p>
+            <span class="go">Read the story →</span>
+          </div>
+        </a>
+        <a class="piece" href="work/three-card-monte.html">
+          <div class="pic"><img src="img/magic-editing.webp" width="695" height="500" alt="Editing a video of the Three-Card Monte." loading="lazy"></div>
+          <div class="cartel">
+            <h3>The mark nobody noticed</h3>
+            <p class="meta">2018, published 2026 · <i>Scientific Reports</i></p>
+            <p>A card that should have given the trick away, a story, and a street con turned into an experiment.</p>
+            <span class="go">Read the story →</span>
+          </div>
+        </a>
+        <a class="piece" href="work/deviated-lifecourses.html">
+          <div class="pic"><img src="img/dvd-scene.webp" width="1400" height="933" alt="Two performers on a purple-lit stage." loading="lazy"></div>
+          <div class="cartel">
+            <h3>Des vies déviées</h3>
+            <p class="meta">2021–2023 · Forum theatre, University of Lausanne · Cast, written, directed and hosted</p>
+            <p>Implicit bias in academia, performed by researchers, with the audience stepping in to change the ending.</p>
+            <span class="go">Read the story →</span>
+          </div>
+        </a>
+        <a class="piece" href="work/halloween-arg.html">
+          <div class="pic"><img src="img/arg-vr.webp" width="1400" height="730" alt="Two players in VR headsets in the dark, during the Halloween ARG." loading="lazy"></div>
+          <div class="cartel">
+            <h3>A Halloween ARG</h3>
+            <p class="meta">2018 · Game design, VR, live actors</p>
+            <p>Built in three weeks with colleagues from across the campus, for 40+ players.</p>
+            <span class="go">Read the story →</span>
+          </div>
+        </a>
       </div>
-      <div class="text-reveal delay-200">
-        <p class="text-lg text-gray-700 leading-relaxed">
-          I work at the intersection of <strong class="text-sky-800">neuroscience, data, and technology</strong> 
-          and <strong class="text-sky-800">creative performance</strong>, exploring how humans learn, connect, and play.
-        </p>
+      <p class="next-room"><a href="#also">Next room: smaller parts <span>→</span></a></p>
+    </div>
+  </section>
+
+  <section id="also" aria-labelledby="also-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="room">Room 3</p><p class="label">Also</p></div>
+        <div>
+          <h2 id="also-title">Smaller parts, same threads</h2>
+        </div>
       </div>
-      <div class="text-reveal delay-300">
-        <p class="text-base text-gray-600 italic">
-          Currently: Postdoctoral Researcher applying neuroscience and data analytics to human experience
-        </p>
+      <ul class="rows">
+        <li><span class="when">2026</span><span><strong>Liotard Awakens, Musée d’Art et d’Histoire.</strong> <span class="note">Talking portraits: actors framed as Liotard’s paintings, chatting with visitors during an after-work evening, directed by Yohann Thenaisie. The idea came out of our brainstorming, and I was the one who landed on it. I then supported the director as concept designer and sounding board, and made things happen backstage.</span></span></li>
+        <li><span class="when">2018–2023</span><span><strong>Social Campus Biotech Association.</strong> <span class="note">Co-president. Community, wellbeing and meaning on a campus where people rarely talked to each other. What people saw was a monthly event for 150+ people. Behind it were a member survey and a focus group that set the direction.</span></span></li>
+        <li><span class="when">2022</span><span><strong>Science Me!, Geneva.</strong> <span class="note">Bilingual MC for two days of an international science-communication competition: 16 teams, 2,300+ spectators.</span></span></li>
+        <li><span class="when">Since 2014</span><span><strong>Advising immersive projects.</strong> <span class="note">A sounding board for people building games and immersive shows: turning an idea into something feasible within real constraints. Safety first: since 2022 I set up protocols for the edge cases between performing and game-mastering, for every show I’m part of.</span></span></li>
+        <li><span class="when">2019</span><span><strong>Innosuisse Business Concept training.</strong> <span class="note">Led a team of four on using IoT and analytics to personalise immersive experiences at scale.</span></span></li>
+        <li><span class="when">2017</span><span><strong>Google, Zürich.</strong> <span class="note">Shopping policy analyst: classification and data quality for Google Shopping offers, plus automation that wasn’t in the job description.</span></span></li>
+        <li><span class="when">2015</span><span><strong>Goshaba, Paris.</strong> <span class="note">Data analysis (Python, SQL) and literature reviews for new behavioural tests, at a start-up profiling cognition through games.</span></span></li>
+        <li><span class="when">2012–2015</span><span><strong>Disneyland Paris.</strong> <span class="note">My first job, over four summers: three as an attraction host at Phantom Manor and the Tower of Terror, one in ticketing. Keeping my head on a swivel to create magic for guests while keeping safety first, then courtesy, inclusion, show and efficiency. Both taught me thick skin and diplomacy; the attraction spiels taught me to MC and to interact live. And exploring other attractions and lands taught me to network.</span></span></li>
+        <li><span class="when">2013–2015</span><span><strong>Ascoergo, Bordeaux.</strong> <span class="note">Vice-president of the cognitive science students’ association: a team of 11, informal science talks in bars, an alumni round table. Where my association life began.</span></span></li>
+      </ul>
+      <p class="next-room"><a href="#writing">Next room: talks &amp; papers <span>→</span></a></p>
+    </div>
+  </section>
+
+  <section id="writing" aria-labelledby="writing-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="room">Room 4</p><p class="label">Talks &amp; papers</p></div>
+        <div>
+          <h2 id="writing-title">Papers, talks, film</h2>
+        </div>
       </div>
-      <div class="text-reveal delay-400">
-        <div class="flex flex-wrap gap-4 pt-2">
-          <a href="#research" class="inline-flex items-center px-6 py-3 bg-sky-600 text-white font-medium rounded-lg btn-lift hover:bg-sky-700 transition-colors">
-            Explore Research
-          </a>
-          <a href="#creative" class="inline-flex items-center px-6 py-3 bg-white text-sky-700 font-medium rounded-lg btn-lift border-2 border-sky-200 hover:border-sky-400 transition-colors">
-            Creative Work
-          </a>
+      <ul class="rows">
+        <li><span class="when">2026</span><span>Nguyen, A.*, Alexander, R. G.*, Venkatakrishnan, A., Macknik, S. L., &amp; Martinez-Conde, S. <strong>Assessing the role of magician patter on deception in the Three-Card Monte.</strong> <i>Scientific Reports</i>, 16, 14770. <span class="note">*co-first authors</span></span></li>
+        <li><span class="when">2026</span><span><strong>Flow and distraction while gaming.</strong> <span class="note">Poster, FENS Forum 2026.</span> <a href="https://indd.adobe.com/view/publication/4cf3b6d1-6cae-4450-b765-4dcb843e71e0/5fj7/publication-web-resources/pdf/2026_FENS_Flow_final.pdf">Poster (PDF)</a></span></li>
+        <li><span class="when">2023</span><span>Nguyen, A., &amp; Bavelier, D. <strong>Play in video games.</strong> <i>Neuroscience &amp; Biobehavioral Reviews</i>. <a href="https://www.sciencedirect.com/science/article/pii/S014976342300355X">Article</a></span></li>
+        <li><span class="when">Since 2022</span><span><strong>Safety for immersive performance.</strong> <span class="note">Protocols and methods for edge cases between performing and game-mastering, briefed to the cast of every show I’m part of.</span></span></li>
+        <li><span class="when">2022</span><span><strong>What makes an immersive experience work?</strong> <span class="note">Nomenclature, state of the art and examples, for a community of LARPers.</span></span></li>
+        <li><span class="when">2021</span><span><strong>Immersive experiences for social change.</strong> <span class="note">Guest session, master’s programme in innovation and sustainability.</span></span></li>
+        <li><span class="when">2021</span><span><strong>A short film, made in a weekend.</strong> <span class="note">SciFilmIt hackathon: teams of scientists, filmmakers and a “black box”. I was the black box, the glue in between.</span> <a href="https://youtu.be/SWPi4yJVBI0">Watch</a></span></li>
+        <li><span class="when">Video</span><span><a href="https://www.youtube.com/watch?v=TiPq9521dpY">Des vies déviées, first part</a> · <a href="https://youtu.be/z50SWzK6TKc">Halloween ARG trailer</a> · <a href="https://youtu.be/0t5TIyYnl2o">PhD defence</a></span></li>
+      </ul>
+      <p class="sans" style="font-size:.9rem;margin-top:1.2rem"><a href="https://scholar.google.com/citations?user=TL-iueIAAAAJ">All publications on Google Scholar →</a></p>
+      <p class="next-room"><a href="#side">Next room: the back room <span>→</span></a></p>
+    </div>
+  </section>
+
+  <section id="side" class="backroom" aria-labelledby="side-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="room">Back room</p><p class="label">On the side</p></div>
+        <div>
+          <h2 id="side-title">The rest of the colour</h2>
+        </div>
+      </div>
+      <div class="side">
+        <div class="prose">
+          <p><strong>Improv</strong> built on what was already there: listening from music, MC’ing from Disney, and an ease with not knowing what comes next. I’ve performed seriously since 2022, in English and French: with The Murderet, an improv troupe that also let me deepen my immersive work, and with The Living Room, my own project. I’ve also directed shows, played piano as musical director, run the tech booth, hosted jams, taught workshops, and brought visiting trainers to Geneva to enrich the local scene. It feeds what I care about most: play, curiosity, discovery, storytelling, teamwork, and trusting the process.</p>
+          <p><strong>Piano</strong>: classical, then jazz, then music production. My niche is sight-reading, and improvising a song or a score live under a scene.</p>
+          <p><strong>Escape rooms</strong>: 120+, including some of the world’s best, and I travel for them, as I do for immersive theatre. Until you’ve played a great one, it’s hard to believe how premium the experience can be. Half hobby, half design research.</p>
+          <p>Also close-up magic (once for science), lion dance, origami and the occasional dive.</p>
+        </div>
+
+        <div class="monte" data-monte data-study="work/three-card-monte.html">
+          <h3>Three-Card Monte</h3>
+          <p class="intro">A small nod to my research. Follow the red card.</p>
+          <div class="table" role="group" aria-label="Three cards">
+            <button class="pcard" type="button"><span class="inner"><span class="face"></span><span class="back"></span></span></button>
+            <button class="pcard" type="button"><span class="inner"><span class="face"></span><span class="back"></span></span></button>
+            <button class="pcard" type="button"><span class="inner"><span class="face"></span><span class="back"></span></span></button>
+          </div>
+          <div class="controls">
+            <button class="btn" type="button" data-deal>Deal</button>
+          </div>
+          <p class="msg" aria-live="polite"></p>
+        </div>
+      </div>
+      <p class="next-room"><a href="#contact">Last stop: say hello <span>→</span></a></p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div><p class="label">Contact</p></div>
+        <div>
+          <h2 id="contact-title">Say hello</h2>
+          <p class="big">Curious about something here? Reach out.</p>
+          <ul class="links">
+            <li><a href="https://www.linkedin.com/in/arthurnguy3n/">LinkedIn</a></li>
+            <li><a href="https://scholar.google.com/citations?user=TL-iueIAAAAJ">Google Scholar</a></li>
+            <!-- EMAIL: once you have an alias, uncomment and fill in:
+            <li><a href="mailto:hello@example.com">Email</a></li> -->
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Research Section -->
-<section id="research" class="py-20 px-6 md:px-16 bg-gray-50">
-  <div class="max-w-6xl mx-auto space-y-12">
-    <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-8" data-aos="fade-right">Research & Data</h2>
+</main>
 
-    <!-- Major Project: EEG Flow Study -->
-<div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col md:flex-row items-center gap-8">
-  <!-- Image 1/3 -->
-  <div class="md:w-1/3 flex justify-center">
-    <img src="img/EEG_setup.jpg" alt="EEG Flow Study"
-         class="rounded-lg shadow-md w-full object-contain">
-  </div>
-  <!-- Text 2/3 -->
-  <div>
-    <h3 class="text-xl font-semibold text-blue-700 mb-3">PhD EEG Study: Flow in Gaming</h3>
-    <ul class="list-disc list-inside text-gray-700 space-y-2">
-      <li>Led a multimodal EEG study with 170+ participants on neural correlates of flow while gaming, ensuring usability and comfort in a complex setup.</li>
-      <li>Developed analytics pipelines (MNE-Python, pandas), automated workflows (Power Automate)</li>
-      <li>Coordinated across game designers, developers, engineers, and neuroscientists</li>
-      <li>Supervised and trained 8 junior researchers; designed experiments and wrote manuscripts</li>
-    </ul>
-    <p class="text-gray-600 italic mt-2">
-      Other projects: play in video games vs animal play, teaching assistant for 200+ students, user testing on serious games, planning guest researcher visits.
-    </p>
-  </div>
-</div>
-
-
-    <!-- New York Magic Project -->
-<div class="bg-white rounded-2xl shadow-lg p-6 flex flex-col md:flex-row items-center gap-8">
-  <!-- Image 1/3 -->
-  <div class="md:w-1/3 flex justify-center">
-    <img src="img/Magic_edit.jpg" alt="EEG Flow Study"
-         class="rounded-lg shadow-md w-full object-contain">
-  </div>
-  <!-- Text 2/3 -->
-  <div>
-    <h3 class="text-xl font-semibold text-blue-700 mb-3">Master's thesis: Neuroscience of Magic</h3>
-    <ul class="list-disc list-inside text-gray-700 space-y-2">
-     <p>Inattentional Blindness Enhanced by a Coherent Narrative During a Magic Card Routine</p> 
-      <li>Designed and ran a behavioral and eye-tracking experiment based on a sleight-of-hand card routine, exploring attention and perception</li>
-<li>Created stimuli and magic routine, edited visuals, recruited and ran participants, and recorded the performance as part of the experimental design</li>
-      <li>Led the initial analysis and drafted the first manuscript
-</li>
-    </ul>
-
-  </div>
-</div>
-
-    <!-- Automation & Hackathons -->
-    <div class="bg-white rounded-xl shadow-lg p-6 md:p-8 hover-scale" data-aos="fade-left" data-aos-delay="300">
-      <h3 class="text-xl font-semibold text-blue-700 mb-3">Data, Automation & Hackathons</h3>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
-        <li>Automated workflows during PhD, at Google, and in startups</li>
-        <li>Mentored participants at machine learning hackathons</li>
-        <li>Class projects: recommender system (Spotify), sentiment analysis on Twitter</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Creative Section -->
-<section id="creative" class="min-h-screen bg-white px-6 md:px-16 py-16">
-  <div class="max-w-6xl mx-auto flex flex-col space-y-12">
-    <div class="text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-4" data-aos="zoom-in">Creative Work</h2>
-      <p class="text-gray-700 md:text-lg" data-aos="fade-in" data-aos-delay="100">
-        My creative practice spans improvisation, immersive experiences, and musical direction. These projects explore play, storytelling, and connection.
-      </p>
-    </div>
-
-    <!-- Improv -->
-    <div class="bg-gray-50 rounded-xl shadow-lg p-8 hover-scale" data-aos="slide-in-left" data-aos-duration="1000">
-      <h3 class="text-2xl font-semibold text-purple-800 mb-4">Improvisation & Performance</h3>
-      <p class="text-gray-700 leading-relaxed mb-4">
-        Experienced improviser and musical director, performing short-form and long-form formats, including murder mysteries and narrative styles (Living Room, Close Quarters, Armando). I also underscored shows on piano and coached performers.
-      </p>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
-        <li>Extensive training in Geneva, online during COVID, and international workshops</li>
-        <li>Led practice sessions, drop-ins, jams, and taught non-improvisers</li>
-        <li>MC'ed shows and coached musical formats</li>
-        <li>Member of two improvisation troupes</li>
-      </ul>
-    </div>
-
-    <!-- Immersive -->
-    <div class="bg-gray-50 rounded-xl shadow-lg p-8 hover-scale" data-aos="slide-in-right" data-aos-duration="1000" data-aos-delay="200">
-      <h3 class="text-2xl font-semibold text-purple-800 mb-4">Immersive & Narrative Experiences</h3>
-      <p class="text-gray-700 leading-relaxed mb-4">
-        Creator and collaborator on immersive and participatory projects blending theatre, narrative, and playful design.
-      </p>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
-        <li>Immersive theater show at a museum</li>
-        <li>Alternative reality game project</li>
-        <li>Large-scale murder mysteries as actor</li>
-        <li>Advised immersive experiences and gave talks to students</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Community Section -->
-<section id="community" class="py-20 px-6 md:px-16 bg-gray-50">
-  <div class="max-w-6xl mx-auto space-y-12">
-    <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-8" data-aos="flip-up">Community & Volunteering</h2>
-    <p class="text-gray-700 md:text-lg max-w-3xl" data-aos="fade-in" data-aos-delay="100">
-      Community runs through all my work — from mentoring students in neuroscience, to organizing improv jams, to volunteering at conferences. These support roles are often invisible, but they are the backbone of both research and creative practice.
-    </p>
-
-    <!-- Research Community -->
-    <div class="bg-white rounded-xl shadow-lg p-8 hover-scale" data-aos="slide-in-left" data-aos-delay="200">
-      <h3 class="text-2xl font-semibold text-sky-800 mb-4">Research & Data Community</h3>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
-        <li>Mentored junior researchers and hackathon participants</li>
-        <li>Teaching assistant for 200+ students</li>
-        <li>Volunteered at scientific conferences and large events</li>
-      </ul>
-    </div>
-
-    <!-- Creative Community -->
-    <div class="bg-white rounded-xl shadow-lg p-8 hover-scale" data-aos="slide-in-right" data-aos-delay="400">
-      <h3 class="text-2xl font-semibold text-sky-800 mb-4">Creative & Improv Community</h3>
-      <ul class="list-disc list-inside text-gray-700 space-y-2">
-        <li>Organized improv jams and drop-ins</li>
-        <li>Active member of associations (SCBA, ASCoErgo, others)</li>
-        <li>Led workshops for non-performers and students</li>
-        <li>Supported festivals and field initiatives</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="py-16 px-6 md:px-16 bg-white">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-sky-900 mb-6" data-aos="bounce-in">Get in Touch</h2>
-    <p class="text-xl text-gray-600 mb-8" data-aos="fade-in" data-aos-delay="100">
-      Always happy to connect about research collaborations, creative projects, or just to say hello!
-    </p>
-    <a href="mailto:your.email@example.com" class="inline-flex items-center px-8 py-4 bg-sky-600 text-white font-medium text-lg rounded-lg btn-lift hover:bg-sky-700 transition-colors" data-aos="zoom-in" data-aos-delay="200">
-      Say Hello
-    </a>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-sky-900 text-white py-8 px-6 md:px-16">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-    <p>&copy; 2025 Arthur Nguyen</p>
-    <div class="flex gap-6">
-      <a href="#" class="hover:text-gray-300 transition-colors">LinkedIn</a>
-      <a href="mailto:your.email@example.com" class="hover:text-gray-300 transition-colors">Email</a>
-    </div>
+<footer>
+  <div class="wrap">
+    <span>© 2026 Arthur Nguyễn · Geneva</span>
   </div>
 </footer>
 
-<script>
-  // Initialize AOS
-  AOS.init({
-    easing: 'ease-in-out',
-    once: true,
-    offset: 50
-  });
-
-  // Mobile menu toggle
-  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  // Close mobile menu when clicking on links
-  const mobileLinks = document.querySelectorAll('#mobile-menu a');
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-    });
-  });
-
-  // Add some scroll effects
-  window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 100) {
-      nav.classList.add('shadow-lg');
-    } else {
-      nav.classList.remove('shadow-lg');
-    }
-  });
-</script>
+<script src="assets/site.js" defer></script>
 </body>
 </html>

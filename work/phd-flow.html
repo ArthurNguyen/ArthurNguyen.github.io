@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Flow, distraction and a lot of EEG · Arthur Nguyễn</title>
+  <meta name="description" content="Arthur Nguyen's PhD and postdoc at the University of Geneva: how the brain responds to distractions during flow in video games, and a research process built for clean data and a good participant experience.">
+  <meta property="og:title" content="Flow, distraction and a lot of EEG">
+  <meta property="og:description" content="In flow, the brain appears to still notice. It just doesn't seem to act on it.">
+  <meta property="og:image" content="https://arthurnguyen.github.io/img/phd-eeg-setup.webp">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="alternate" hreflang="en" href="https://arthurnguyen.github.io/work/phd-flow.html">
+  <link rel="alternate" hreflang="fr" href="https://arthurnguyen.github.io/fr/work/phd-flow.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="site-name" href="../">Arthur Nguyễn</a>
+    <nav aria-label="Main"><ul><li><a href="../#work">Work</a></li><li class="opt"><a href="../#writing">Talks &amp; papers</a></li><li><a href="../#contact">Contact</a></li></ul><a class="lang" href="../fr/work/phd-flow.html" hreflang="fr" lang="fr">FR</a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme"><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button></nav>
+  </div>
+</header>
+
+<main>
+  <div class="case-head">
+    <div class="wrap">
+      <a class="back" href="../#work">← All work</a>
+      <p class="label">PhD &amp; postdoc · 2019–2026</p>
+      <h1>Flow, distraction and a lot of EEG</h1>
+      <p class="lede">When you’re deeply absorbed in a video game, how much of the outside world still gets in? I looked for flow in the brain. Most of the craft went into a process that 170+ people could go through comfortably, and that produced data worth analysing.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>PhD candidate, then postdoc</dd></div>
+        <div><dt>Lab</dt><dd>Brain &amp; Learning Lab, Prof. Daphné Bavelier, University of Geneva, Campus Biotech</dd></div>
+        <div><dt>Scale</dt><dd>170+ participants, EEG during active gameplay</dd></div>
+        <div><dt>Team</dt><dd>Trained and supervised 9 junior researchers</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="case-body">
+    <div class="wrap">
+      <figure class="wide">
+        <img src="../img/phd-eeg-setup.webp" width="1400" height="1050" alt="A participant wearing an EEG cap and headphones plays a first-person video game at a desk." loading="lazy">
+        <figcaption>The setup: an EEG cap, headphones, and a fast-paced video game.</figcaption>
+      </figure>
+
+      <h2>The question</h2>
+      <p>Flow is the state of being fully absorbed in something challenging. It’s easy to describe and hard to measure: there is still no objective marker of flow, so research relies on questionnaires. We looked for a marker in the brain, by an indirect route. While people played, they heard a stream of frequent, identical sounds, with an occasional rare one: either a deviant tone or a completely novel sound. If flow uses up attention, the brain should respond less to those rare sounds.</p>
+
+      <h2>What we found</h2>
+      <p>Not what we expected. First, when players had to respond actively to the rare sounds, in a design adapted from a published study, we could not replicate that study’s effect. Then, when the sounds simply played in the background, the brain’s automatic change-detection response (the mismatch negativity) was <em>larger</em> in higher flow than in lower flow, for both kinds of rare sound. But the response that usually signals attention turning towards a novel sound (the novelty P3) didn’t follow.</p>
+      <blockquote>In flow, the brain appears to still notice. It just doesn’t seem to act on it.</blockquote>
+
+      <div class="flow" data-flow>
+        <p class="levels-label">Compare our two conditions</p>
+        <div class="levels" role="group" aria-label="Flow level">
+          <button type="button" data-level="lower" aria-pressed="false">Lower flow</button>
+          <button type="button" data-level="higher" aria-pressed="true">Higher flow</button>
+        </div>
+        <p data-state-text>Higher flow: the brain’s automatic response to the rare sounds is larger, yet there’s no sign of attention turning towards them.</p>
+        <p class="meter-label">Notices the rare sound (mismatch negativity)</p>
+        <div class="meter" data-notice><i style="width:78%"></i></div>
+        <p class="meter-label">Turns attention towards it (novelty P3): no difference between conditions</p>
+        <div class="meter"><i style="width:45%"></i></div>
+        <p class="fine">An illustration of the direction of the effects, not real data. We compared two levels of flow, but flow itself isn’t binary, and it depends on more than balancing challenge and skill: an active, engaging task, clear goals and immediate feedback.</p>
+      </div>
+      <p>This runs against the simple idea that flow leaves no resources for distractions, but it makes sense: the brain keeps monitoring the world, and simply declines to be pulled away. The results have been presented at an international conference and at local ones, and two papers are in preparation.</p>
+      <p class="aside">The <a href="https://indd.adobe.com/view/publication/4cf3b6d1-6cae-4450-b765-4dcb843e71e0/5fj7/publication-web-resources/pdf/2026_FENS_Flow_final.pdf">FENS Forum 2026 poster (PDF)</a>.</p>
+
+      <h2>Good data starts at the door</h2>
+      <p>Classic EEG studies ask people to sit still in front of a simple task, and some still discard data at every blink. Our participants played a fast-paced game with their hands, so some movement was unavoidable, and the signal is among the noisiest there is. On top of that, a session is long and physically odd, and can feel intimidating: people may tense up. A participant who feels rushed or uneasy moves more, tires faster and is less likely to come back, and all of that shows up as noise.</p>
+      <p>So I treated the participant’s journey, from the first online contact to the goodbye, as part of the method. We kept it relaxed: chatting, water, even snacks. The motto I gave my students:</p>
+      <blockquote>We want people to feel welcome, safe and taken care of. Then they take care of us.</blockquote>
+      <p>In practice: be conversational, explain what’s happening and why, check in often, and make the session feel less like a procedure and more like a partnership, always within what people had consented to.</p>
+      <p>To free up time for that, I automated everything that happened before people arrived. A Power Automate workflow handled onboarding: scheduling, reminders and paperwork. Nobody had to chase emails, and the experimenters could put their attention on the person in front of them.</p>
+
+      <h2>When the odd one slips through</h2>
+      <p>However careful a team is, a long study with rotating experimenters will eventually produce a mistake: a wrong file name, a skipped step, a mislabelled condition. I designed the procedure in layers. Standardised steps made errors hard to make. Several safeguards caught most of the ones that happened anyway. And flags surfaced the rest during the session, rather than months later at analysis time.</p>
+
+      <h2>Cleaning data as a team</h2>
+      <p>Spotting a blink in EEG data is easy. Deciding which of the remaining components are brain activity and which are muscle or noise relies on human judgement, and left to one person, those calls drift. I pushed for a peer-review step, so each decision was checked by a colleague. I co-designed it with an engineer, who built the tool: my part was the need, the design and the review steps. We built it so that students who don’t code could also annotate and select components, with safety nets throughout.</p>
+
+      <h2>Analysis</h2>
+      <p>I built the preprocessing and analysis pipelines in Python (MNE-Python, pandas), factorised so they can be re-run safely and generate figures and statistics reports with clean names and consistent style. I map the big picture out on a 2D board, then tell the final story in streamlined slides. Along the way I also built a small interface to trim gameplay videos for annotation. During my postdoc I rebuilt the codebase for open-source publication with proper quality control, coordinated more advanced EEG analyses, wrote guidelines for annotating gameplay video, and negotiated a contract with an external provider.</p>
+
+      <h2>Teaching along the way</h2>
+      <p>I trained and supervised nine junior researchers across the whole pipeline, from welcoming a participant to writing up results.</p>
+
+      <div class="numbers">
+        <div><b>170+</b>participants</div>
+        <div><b>9</b>junior researchers trained</div>
+        <div><b>2</b>papers in preparation</div>
+      </div>
+
+      <h2>What I left behind</h2>
+      <p>A rare thing in research: a large, well-documented dataset, with code and documentation others can actually pick up. Students and a research assistant are building on it now, and more should follow once the dataset is published. I’m proud of that.</p>
+      <p class="aside"><a href="https://archive-ouverte.unige.ch/unige:184594">Thesis record</a> (full text embargoed until publication) · <a href="https://youtu.be/0t5TIyYnl2o">Public defence (video)</a> · Related: Nguyen &amp; Bavelier, <a href="https://www.sciencedirect.com/science/article/pii/S014976342300355X"><i>Play in video games</i></a>, <i>Neuroscience &amp; Biobehavioral Reviews</i> (2023)</p>
+    </div>
+  </div>
+</main>
+
+<nav class="next" aria-label="More work">
+  <div class="wrap">
+    <a href="deviated-lifecourses.html">Previous<span>← Des vies déviées</span></a>
+    <a href="mah-2022.html">Next<span>A MAH-tter of Life and Death →</span></a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Arthur Nguyễn · Geneva</span>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>
