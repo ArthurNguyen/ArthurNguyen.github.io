@@ -367,3 +367,4 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 /* Language switch */
 .lang { font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.06em; color: var(--ink-3); text-decoration: none; margin-left: 1.2rem; }
 .lang:hover { color: var(--accent-ink); }
+.pcard .back { margin: 0; display: block; }
