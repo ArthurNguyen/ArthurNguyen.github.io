@@ -382,3 +382,7 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 .hero .hero-head .lede { max-width: none; font-size: clamp(1.45rem, 2.3vw, 1.8rem); }
 .hero .portrait img { aspect-ratio: 1 / 1; object-fit: cover; object-position: 47% 40%; }
 @media (max-width: 860px) { .hero .portrait img { aspect-ratio: 4 / 3; } }
+
+/* Hero v4: 5:4 photo, "Now" line under the opening sentence */
+.hero .portrait img { aspect-ratio: 5 / 4; object-position: 45% 40%; }
+.hero .hero-head .now { margin-top: 1.2rem; }
