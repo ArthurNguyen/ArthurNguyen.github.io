@@ -368,3 +368,11 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 .lang { font-family: var(--sans); font-size: 0.8rem; letter-spacing: 0.06em; color: var(--ink-3); text-decoration: none; margin-left: 1.2rem; }
 .lang:hover { color: var(--accent-ink); }
 .pcard .back { margin: 0; display: block; }
+
+/* Hero: name + opening line across the top, then text and photo side by side */
+.hero .hero-head { grid-column: 1 / -1; }
+.hero .hero-head .lede { max-width: 46rem; margin-bottom: 0; }
+.hero .wrap { row-gap: 2.2rem; align-items: center; }
+.hero .hero-text p { max-width: none; }
+.hero .hero-text .now { margin-top: 1.6rem; }
+@media (max-width: 860px) { .hero .wrap { row-gap: 1.6rem; } }
