@@ -390,3 +390,6 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 /* Hero v5: Now line on one line, photo aligned with the first paragraph */
 .hero .hero-head .now { max-width: none; }
 .hero .portrait { align-self: start; margin-top: 0.4rem; }
+
+/* Game cards in Bicycle (poker) proportions, 63 x 88 mm */
+.table { height: 8.4rem; }
