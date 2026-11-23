@@ -99,7 +99,7 @@ nav a:hover { color: var(--accent-ink); }
 
 /* ---------- Hero ---------- */
 .hero { padding: 4.5rem 0 4rem; }
-.hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 3.5rem; align-items: center; }
+.hero .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center; }
 .hero h1 { font-size: clamp(2.6rem, 6vw, 4.2rem); margin-bottom: 1.4rem; }
 .hero .lede { font-size: 1.45rem; line-height: 1.4; color: var(--ink); margin-bottom: 1.4rem; max-width: 30rem; }
 .hero .lede em { font-style: italic; color: var(--accent-ink); }
