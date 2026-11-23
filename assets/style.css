@@ -376,3 +376,9 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 .hero .hero-text p { max-width: none; }
 .hero .hero-text .now { margin-top: 1.6rem; }
 @media (max-width: 860px) { .hero .wrap { row-gap: 1.6rem; } }
+
+/* Hero v3: wider text column, squarer photo, fuller opening line */
+.hero .wrap { grid-template-columns: 1.45fr 1fr; }
+.hero .hero-head .lede { max-width: none; font-size: clamp(1.45rem, 2.3vw, 1.8rem); }
+.hero .portrait img { aspect-ratio: 1 / 1; object-fit: cover; object-position: 47% 40%; }
+@media (max-width: 860px) { .hero .portrait img { aspect-ratio: 4 / 3; } }
