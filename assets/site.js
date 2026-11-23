@@ -40,7 +40,7 @@
     var hasWon = false, conned = 0, busy = false;
 
     var RED = '<span class="corner">A<br>♥</span>♥';
-    var BLACK = ['<span class="corner">8<br>♣</span>♣', '<span class="corner">8<br>♠</span>♠'];
+    var BLACK = ['<span class="corner">8<br>♣</span>♣', '<span class="corner">9<br>♣</span>♣'];
 
     function setFace(card, red, i) {
       var face = card.querySelector(".face");
