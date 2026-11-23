@@ -386,3 +386,7 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 /* Hero v4: 5:4 photo, "Now" line under the opening sentence */
 .hero .portrait img { aspect-ratio: 5 / 4; object-position: 45% 40%; }
 .hero .hero-head .now { margin-top: 1.2rem; }
+
+/* Hero v5: Now line on one line, photo aligned with the first paragraph */
+.hero .hero-head .now { max-width: none; }
+.hero .portrait { align-self: start; margin-top: 0.4rem; }
