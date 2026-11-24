@@ -167,7 +167,7 @@ section { padding: 4rem 0; border-top: 1px solid var(--rule); }
 .pcard[data-slot="1"] { transform: translateX(116.66%); }
 .pcard[data-slot="2"] { transform: translateX(233.33%); }
 .pcard .inner { position: relative; display: block; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.4s; }
-.pcard .face, .pcard .back { transition: opacity 0.28s ease; }
+.pcard .face, .pcard .back { transition: none; }
 .pcard.down .face { opacity: 0; }
 .pcard:not(.down) .back { opacity: 0; }
 .pcard.down.lift .inner { transform: translateY(-12px); }
@@ -401,3 +401,12 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 @media (max-width: 860px) {
   .hero .wrap { grid-template-columns: 1fr; }
 }
+
+/* Cards folded lengthwise, as Monte cards are: a soft crease down the middle */
+.pcard .face { background-image: linear-gradient(90deg, rgba(0,0,0,0.07) 0%, rgba(0,0,0,0.015) 49.6%, rgba(255,255,255,0.5) 50.4%, rgba(0,0,0,0.03) 100%); }
+.pcard .back { background-image:
+  linear-gradient(90deg, rgba(0,0,0,0.16) 0%, rgba(0,0,0,0.04) 49.6%, rgba(255,255,255,0.14) 50.4%, rgba(0,0,0,0.06) 100%),
+  repeating-linear-gradient(45deg, rgba(255,255,255,0.16) 0 2px, transparent 2px 9px),
+  repeating-linear-gradient(-45deg, rgba(255,255,255,0.16) 0 2px, transparent 2px 9px); }
+.pcard .face, .pcard .back { box-shadow: 0 3px 5px -2px rgba(0,0,0,0.35); }
+.pcard .inner { transform-style: flat; }

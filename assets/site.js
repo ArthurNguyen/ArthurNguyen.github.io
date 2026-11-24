@@ -37,7 +37,8 @@
     var btn = monte.querySelector("[data-deal]");
     var msg = monte.querySelector(".msg");
     var studyLink = monte.getAttribute("data-study") || "#";
-    var hasWon = false, conned = 0, busy = false;
+    var hasWon = false, rigged = false, conned = 0, busy = false;
+    var FLIP = reduce ? 0 : 160;
 
     var RED = '<span class="corner">A<br>♥</span>♥';
     var BLACK = ['<span class="corner">8<br>♣</span>♣', '<span class="corner">9<br>♣</span>♣'];
@@ -48,9 +49,32 @@
       face.classList.toggle("red", red);
       card.dataset.red = red ? "1" : "0";
     }
+    function swapIdentity(a, b) {
+      var fa = a.querySelector(".face"), fb = b.querySelector(".face"), tmp = fa.innerHTML;
+      fa.innerHTML = fb.innerHTML; fb.innerHTML = tmp;
+      var ra = fa.classList.contains("red"), rb = fb.classList.contains("red");
+      fa.classList.toggle("red", rb); fb.classList.toggle("red", ra);
+      var d = a.dataset.red; a.dataset.red = b.dataset.red; b.dataset.red = d;
+    }
     function slotOf(c) { return +c.dataset.slot; }
     function bySlot(s) { return cards.filter(function (c) { return slotOf(c) === s; })[0]; }
     function say(html) { msg.innerHTML = html; }
+    function link() { return " <a href='" + studyLink + "'>" + t("What my study tested →", "Ce que mon étude a testé →") + "</a>"; }
+
+    // A flat card turn: squash to a sliver, switch sides, open again. The card keeps its height.
+    async function flip(card, down) {
+      if (card.classList.contains("down") === down) return;
+      var inner = card.querySelector(".inner");
+      inner.style.transition = "transform " + FLIP + "ms ease-in";
+      inner.style.transform = "scaleX(0.02)";
+      await wait(FLIP);
+      card.classList.toggle("down", down);
+      inner.style.transition = "transform " + FLIP + "ms ease-out";
+      inner.style.transform = "";
+      await wait(FLIP);
+      inner.style.transition = "";
+    }
+    function flipAll(down) { return Promise.all(cards.map(function (c) { return flip(c, down); })); }
 
     cards.forEach(function (c, i) { c.dataset.slot = i; setFace(c, i === 1, i); c.disabled = true; c.setAttribute("aria-label", t("Card", "Carte")); });
 
@@ -58,20 +82,29 @@
       if (busy) return;
       busy = true; btn.disabled = true;
       monte.classList.remove("picking");
+      rigged = hasWon; // once you've won, the dealer starts throwing
       say(t("Watch the red card…", "Suivez la carte rouge…"));
-      cards.forEach(function (c) { c.classList.remove("down"); });
-      await wait(reduce ? 100 : 1000);
-      cards.forEach(function (c) { c.classList.add("down"); });
-      await wait(reduce ? 100 : 600);
-      // Fair, followable moves: adjacent swaps only, at a human pace.
+      await flipAll(false);
+      await wait(reduce ? 100 : 900);
+      await flipAll(true);
+      await wait(reduce ? 100 : 400);
       var n = reduce ? 3 : 6;
+      var fakeAt = rigged ? 2 + Math.floor(Math.random() * (n - 3)) : -1;
       for (var k = 0; k < n; k++) {
-        var a = Math.floor(Math.random() * 2), b = a + 1;
+        var a, b;
+        if (k === fakeAt) {
+          // The fake throw: the red card seems to travel, but stays where it was.
+          a = slotOf(cards.filter(function (c) { return c.dataset.red === "1"; })[0]);
+          b = a === 0 ? 1 : a === 2 ? 1 : (Math.random() < 0.5 ? 0 : 2);
+        } else {
+          a = Math.floor(Math.random() * 2); b = a + 1;
+        }
         var ca = bySlot(a), cb = bySlot(b);
-        ca.classList.add("lift");
+        ca.classList.add("lift"); cb.classList.add("lift");
         ca.dataset.slot = b; cb.dataset.slot = a;
-        await wait(reduce ? 40 : 520);
-        ca.classList.remove("lift");
+        if (k === fakeAt) { await wait(reduce ? 20 : 230); swapIdentity(ca, cb); await wait(reduce ? 20 : 290); }
+        else { await wait(reduce ? 40 : 520); }
+        ca.classList.remove("lift"); cb.classList.remove("lift");
       }
       monte.classList.add("picking");
       cards.forEach(function (c) { c.disabled = false; c.setAttribute("aria-label", t("Card in position ", "Carte en position ") + (slotOf(c) + 1)); });
@@ -84,32 +117,21 @@
       busy = true;
       monte.classList.remove("picking");
       cards.forEach(function (c) { c.disabled = true; });
-
-      if (hasWon && card.dataset.red === "1") {
-        // The con: once you're confident, the switch happens.
-        var others = cards.filter(function (c) { return c !== card; });
-        var target = others[Math.floor(Math.random() * 2)];
-        var a = card.querySelector(".face"), b = target.querySelector(".face"), tmp = a.innerHTML;
-        a.innerHTML = b.innerHTML; b.innerHTML = tmp;
-        a.classList.remove("red"); b.classList.add("red");
-        card.dataset.red = "0"; target.dataset.red = "1";
-      }
       var won = card.dataset.red === "1";
+      await flip(card, false);
+      await wait(reduce ? 50 : 350);
+      await flipAll(false);
 
-      card.classList.remove("down");
-      await wait(reduce ? 50 : 700);
-      cards.forEach(function (c) { c.classList.remove("down"); });
-
-      if (won) {
-        hasWon = true;
-        say(t("Found it. Well followed. Feeling confident? Go again.", "Trouvée. Bien suivi. En confiance ? Rejouez."));
-      } else if (!hasWon) {
-        say(t("Not this one. Another go?", "Pas celle-ci. On rejoue ?"));
+      if (!rigged) {
+        if (won) { hasWon = true; say(t("Found it. Well followed. Feeling confident? Go again.", "Trouvée. Bien suivi. En confiance ? Rejouez.")); }
+        else { say(t("Not this one. Another go?", "Pas celle-ci. On rejoue ?")); }
+      } else if (won) {
+        say(t("Found it! Either you spotted the switch mid-shuffle, or luck was on your side. On the street, that’s usually when the dealer stops the game.", "Trouvée ! Soit vous avez repéré l’échange en plein mélange, soit la chance était de votre côté. Dans la rue, c’est souvent là que le donneur arrête la partie.") + link());
       } else {
         conned++;
         say(conned === 1
-          ? t("Not this time. Once you feel confident, that’s when the switch happens. On the street it’s rarely one dealer: there are shills winning to lure you in, sometimes a pickpocket. Never a good idea to play.", "Pas cette fois. C’est quand vous êtes en confiance que l’échange se fait. Dans la rue, le donneur est rarement seul : des complices gagnent pour vous appâter, parfois un pickpocket. Ne jouez jamais.") + " <a href='" + studyLink + "'>" + t("The research behind it →", "La recherche derrière →") + "</a>"
-          : t("Still not. The game was decided before you chose.", "Toujours pas. La partie était jouée avant votre choix.") + " <a href='" + studyLink + "'>" + t("The research behind it →", "La recherche derrière →") + "</a>");
+          ? t("Not this time. Once you feel confident, that’s when the switch happens. On the street it’s rarely one dealer: there are shills winning to lure you in, sometimes a pickpocket. Never a good idea to play. Does the dealer’s talk stop you from seeing what’s in front of you?", "Pas cette fois. C’est quand vous êtes en confiance que l’échange se fait. Dans la rue, le donneur est rarement seul : des complices gagnent pour vous appâter, parfois un pickpocket. Ne jouez jamais. Le boniment du donneur vous empêche-t-il de voir ce que vous avez sous les yeux ?") + link()
+          : t("Still not. The game was decided before you chose.", "Toujours pas. La partie était jouée avant votre choix.") + link());
       }
       btn.textContent = t("Deal again", "Redistribuer");
       btn.disabled = false;
