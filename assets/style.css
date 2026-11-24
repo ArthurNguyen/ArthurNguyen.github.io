@@ -420,3 +420,8 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 .piece:nth-child(6) { grid-column: 4 / span 3; margin-top: 3rem; }
 @media (max-width: 860px) { .piece:nth-child(n) { grid-column: auto; margin-top: 0; } }
 .piece .pic img.screen { aspect-ratio: auto; }
+
+/* Row 3: Halloween ARG big, Line Up small (continues the big/small rhythm) */
+.piece:nth-child(5) { grid-column: 1 / span 4; }
+.piece:nth-child(6) { grid-column: 5 / span 2; align-self: end; margin-top: 0; }
+@media (max-width: 860px) { .piece:nth-child(n) { grid-column: auto; } }
