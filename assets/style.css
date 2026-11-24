@@ -410,3 +410,13 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
   repeating-linear-gradient(-45deg, rgba(255,255,255,0.16) 0 2px, transparent 2px 9px); }
 .pcard .face, .pcard .back { box-shadow: 0 3px 5px -2px rgba(0,0,0,0.35); }
 .pcard .inner { transform-style: flat; }
+
+/* Screenshots and videos in case studies */
+.case-body .trio.screens img { aspect-ratio: auto; object-fit: contain; }
+.case-body figure video { width: 100%; height: auto; border-radius: 3px; display: block; background: #0f1828; }
+
+/* Six projects in the collection */
+.piece:nth-child(5) { grid-column: 1 / span 3; }
+.piece:nth-child(6) { grid-column: 4 / span 3; margin-top: 3rem; }
+@media (max-width: 860px) { .piece:nth-child(n) { grid-column: auto; margin-top: 0; } }
+.piece .pic img.screen { aspect-ratio: auto; }

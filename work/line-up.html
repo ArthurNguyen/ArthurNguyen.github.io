@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Line Up · Arthur Nguyễn</title>
+  <meta name="description" content="Line Up: a party game built by Arthur Nguyen for his lab’s retreat from colleagues’ own answers, with an EEG-style reveal and the oddball tones from his thesis. Designed and built in under two days.">
+  <meta property="og:title" content="Line Up">
+  <meta property="og:description" content="A farewell gift to my lab: a party game built from my colleagues’ answers, with the oddball tones from my thesis.">
+  <meta property="og:image" content="https://arthurnguyen.ch/img/lineup-tabs.webp">
+  <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <link rel="alternate" hreflang="en" href="https://arthurnguyen.ch/work/line-up.html">
+  <link rel="alternate" hreflang="fr" href="https://arthurnguyen.ch/fr/work/line-up.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="site-name" href="../">Arthur Nguyễn</a>
+    <nav aria-label="Main"><ul><li><a href="../#work">Work</a></li><li class="opt"><a href="../#writing">Talks &amp; papers</a></li><li><a href="../#contact">Contact</a></li></ul><a class="lang" href="../fr/work/line-up.html" hreflang="fr" lang="fr">FR</a><button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme"><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button></nav>
+  </div>
+</header>
+
+<main>
+  <div class="case-head">
+    <div class="wrap">
+      <a class="back" href="../#work">← All work</a>
+      <p class="label">Game design · 2026</p>
+      <h1>Line Up</h1>
+      <p class="lede">One of my two farewell gifts to the lab: a party game built from my colleagues’ own answers, and a homage to eight years in the lab, full of references to my PhD. Designed and built in under two days, with Claude.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Concept, game design and build</dd></div>
+        <div><dt>Context</dt><dd>Annual retreat, Brain &amp; Learning Lab, October 2026</dd></div>
+        <div><dt>Players</dt><dd>About 20 people, in 5 teams</dd></div>
+        <div><dt>Built</dt><dd>In under two days, with Claude; a web app joined by QR code</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="case-body">
+    <div class="wrap">
+      <figure class="wide">
+        <img src="../img/lineup-tabs.webp" width="1400" height="911" alt="A results screen in 8-bit style: “Browser tabs open right now”, with colleagues’ names placed along an EEG-like trace and peaks marking four highlighted names." loading="lazy">
+        <figcaption>A reveal: each highlighted name lands as a peak on an EEG-style trace.</figcaption>
+      </figure>
+
+      <h2>The brief</h2>
+      <p>The lab retreat is a yearly gathering, mostly given over to writing, work and talks. At my first one I led an improv session; after that, like everyone else, I stuck to the programme. Once my thesis was done in March 2025, the energy to give back in connection and play returned: that year I ran a simple Kahoot on fun facts, where you guessed whose fact it was. In 2026 I levelled up. It was my last retreat, with my new job already lined up, and I wasn’t even sure I could attend, so it became a farewell gift.</p>
+
+      <h2>The game</h2>
+      <p>I decided at the last minute, so the questionnaire went out during the retreat itself: yes/no questions and scales. Line Up turned the answers into 16 trials of two kinds:</p>
+      <ul>
+        <li><strong>Guess the percentage:</strong> how many of us said yes? “Will Fabrice be on time at the next retreat?”</li>
+        <li><strong>Rank four colleagues</strong> on a scale: houseplants kept alive, browser tabs open, hours of gaming. One point for every pair you put the right way round.</li>
+      </ul>
+      <p>Every lab member appeared equally, so everyone felt included, with four people spread far enough apart on each scale to keep the ranking interesting. Answers arrived live as teams locked in, and some came with comments that popped up at the reveal.</p>
+      <p>The questions mixed a few inside jokes with things anyone could play, since some players were alumni or guests who no longer knew the lab well. Fun, but always safe: nothing that could embarrass or expose anyone.</p>
+
+      <div class="trio screens">
+        <figure>
+          <img src="../img/lineup-prompt.webp" width="1400" height="911" alt="A ranking prompt with a long questionnaire item about weekly hours of video gaming, and four colleagues’ names to put in order." loading="lazy">
+          <figcaption>A ranking prompt, word for word from a lab questionnaire.</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/lineup-percent.webp" width="1400" height="911" alt="A percentage reveal: “Will Fabrice be on time at the next retreat?”, 29%, with each team’s guess shown as a square." loading="lazy">
+          <figcaption>A percentage reveal, with each team’s guess.</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/lineup-podium.webp" width="1400" height="911" alt="The final scores on a podium with pixel confetti." loading="lazy">
+          <figcaption>The podium, with confetti.</figcaption>
+        </figure>
+      </div>
+
+      <h2>A homage, built on my research</h2>
+      <p>The reveal is an EEG-style trace: each name lands as a peak, with the same oddball tones as my thesis experiment. Trials are numbered like an experiment, and a “REC” light blinks while teams lock in. One prompt was lifted word for word from a questionnaire the lab had designed, gloriously long, with its co-authors in the room. The rest is pure arcade: 8-bit music, pixel fonts, and a podium with confetti.</p>
+
+      <figure class="wide">
+        <video controls preload="none" playsinline poster="../img/lineup-trial-poster.jpg" width="1280" height="720">
+          <source src="../media/lineup-trial.mp4" type="video/mp4">
+        </video>
+        <figcaption>One trial, from prompt to reveal. Turn the sound on for the oddball tones.</figcaption>
+      </figure>
+
+      <h2>Iterating where it mattered</h2>
+      <p>As in any project, I started with the intention: what the game had to feel like for the people playing it. Because I knew exactly what I wanted from the core mechanics, I could write very precise specifications, then take the time for many iterations. Most went into usability, making it foolproof on a phone:</p>
+      <ul>
+        <li>I switched from tapping to dragging, which is far more intuitive for ranking;</li>
+        <li>selecting, locking and releasing a name became unambiguous;</li>
+        <li>every step gave clear feedback: the ingredients of flow and good game design.</li>
+      </ul>
+      <p>On the big screen, I chose when to move on to the next trial, and could step back and forth.</p>
+
+      <h2>On the day</h2>
+      <p>The game ran as a web app on my laptop, with players joining by QR code. The venue Wi-Fi was too poor, so I switched to my phone’s hotspot, which allowed only five devices. We played in five teams instead of individually, and that turned out better: about twenty people, debating every ranking together.</p>
+
+      <figure class="wide">
+        <video controls preload="none" playsinline poster="../img/lineup-lobby-poster.jpg" width="1280" height="720">
+          <source src="../media/lineup-lobby.mp4" type="video/mp4">
+        </video>
+        <figcaption>The lobby, with the live trace and the music.</figcaption>
+      </figure>
+
+      <h2>What I learned</h2>
+      <p>A clear intention is what made it fast. Knowing what the game had to feel like let me spend my limited time on the parts players would touch. And a technical failure can turn into a design gift: the five-device limit turned a solo quiz into a team conversation.</p>
+    </div>
+  </div>
+</main>
+
+<nav class="next" aria-label="More work">
+  <div class="wrap">
+    <a href="halloween-arg.html">Previous<span>← A Halloween ARG at Campus Biotech</span></a>
+    <a href="../#work">All work<span>Back to the overview →</span></a>
+  </div>
+</nav>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Arthur Nguyễn · Geneva</span>
+  </div>
+</footer>
+<script src="../assets/site.js" defer></script>
+</body>
+</html>
