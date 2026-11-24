@@ -396,3 +396,8 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 
 /* "Watch first" line under a case-study lede */
 .case-head .watch-first { font-family: var(--sans); font-size: 0.95rem; color: var(--ink-2); margin-top: 1rem; }
+
+/* Phones: one column again (overrides the desktop column split above) */
+@media (max-width: 860px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+}
