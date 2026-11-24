@@ -393,3 +393,6 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 
 /* Game cards in Bicycle (poker) proportions, 63 x 88 mm */
 .table { height: 8.4rem; }
+
+/* "Watch first" line under a case-study lede */
+.case-head .watch-first { font-family: var(--sans); font-size: 0.95rem; color: var(--ink-2); margin-top: 1rem; }
