@@ -435,3 +435,7 @@ nav a.here { color: var(--ink); text-decoration: underline; text-decoration-colo
 .piece:nth-child(5) { grid-column: 1 / span 7; }
 .piece:nth-child(6) { grid-column: 8 / span 5; }
 @media (max-width: 860px) { .works { grid-template-columns: 1fr; } .piece:nth-child(n) { grid-column: auto; } }
+
+/* Spoiler box on a case study, before any text */
+.case-head .lede:empty { display: none; }
+.case-head .spoiler { font-family: var(--sans); font-size: 0.95rem; line-height: 1.5; color: var(--ink); background: var(--paper-2); border-left: 3px solid var(--accent); padding: 0.9rem 1.1rem; max-width: 40rem; margin: 0.4rem 0 1.6rem; border-radius: 3px; }
